@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static java.lang.Integer.valueOf;
+
 public class InputMainActivity extends AppCompatActivity {
 
     EditText mMessage;
@@ -47,8 +49,20 @@ public class InputMainActivity extends AppCompatActivity {
         // GET MESSAGE FROM USER (write letter)
         String inputMessage = mMessage.getText().toString();
 
+        // GET STRING VALUE OF THE USER SHIFT AMOUNT
+        String inputShiftValue = mShift.getText().toString();
+
+        // --- INT VALUE
+
         // ADD EXTRA CONTAINING MESSAGE TO THE INTENT (put the letter in the envelope)
         encryptIntent.putExtra("MESSAGE", inputMessage);
+
+        // BAD
+        //encryptIntent.putExtra("SHIFTVALUE", inputShiftValue);
+
+        //
+
+        encryptIntent.putExtra("SHIFTVALUE", inputShiftValue);
 
         startActivity(encryptIntent);
 
